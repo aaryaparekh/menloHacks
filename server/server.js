@@ -33,7 +33,6 @@ app.post('/users', (req, res)=>{
 
   //save the data to mongodb by using the .save()
   user.save().then((doc)=>{
-    console.log('post is being saved');
     res.send(doc);                  //If all goes well
   }, (e)=>{
     res.status(400).send(e +' , in other words: something wrong with the data you are sending.');        //If there was an error, also send back a status of 400.
@@ -42,7 +41,7 @@ app.post('/users', (req, res)=>{
 
 //Get request
 app.get('/users', (req, res) => {
-  Todo.find().then((users)=>{
+  User.find().then((users)=>{
     res.send({users});
   }, (e)=>{
     res.status(400).send(e);

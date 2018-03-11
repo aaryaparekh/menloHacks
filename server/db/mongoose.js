@@ -1,6 +1,5 @@
 //Configuration for moongoose
 const mongoose = require('mongoose');
-const {MongoClient, ObjectID} = require('mongodb');
 //Tell mongoose to use promises
 mongoose.Promise = global.Promise;
 
