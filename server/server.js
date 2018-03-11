@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 
 //Send the data to server (doesn't do anything with it yet)
 app.post('/users', (req, res)=>{
+  console.log('post is being called');
   var user = new User({
     username: req.body.username,    //Uses the req.body object, looks for a property called username, and passes it
     password: req.body.password
@@ -32,6 +33,7 @@ app.post('/users', (req, res)=>{
 
   //save the data to mongodb by using the .save()
   user.save().then((doc)=>{
+    console.log('post is being saved');
     res.send(doc);                  //If all goes well
   }, (e)=>{
     res.status(400).send(e +' , in other words: something wrong with the data you are sending.');        //If there was an error, also send back a status of 400.
