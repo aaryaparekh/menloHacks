@@ -24,13 +24,14 @@ app.get('/', (req, res) => {
 });
 
 //Send the data to server (doesn't do anything with it yet)
-app.post('/todos', (req, res)=>{
-  var todo = new Todo({             //Use the Todo model
-    text: req.body.text             //Uses the req.body object, looks for a property called text, and passes it
+app.post('/users', (req, res)=>{
+  var user = new User({             //Use the Todo model
+    username: req.body.username             //Uses the req.body object, looks for a property called text, and passes it
+    password: req.body.password
   });                               //Note: The actual req.body.text value is defined by something that is trying to post data to this server
 
   //save the data to mongodb by using the .save()
-  todo.save().then((doc)=>{
+  user.save().then((doc)=>{
     res.send(doc);                  //If all goes well
   }, (e)=>{
     res.status(400).send(e +' , in other words: something wrong with the data you are sending.');        //If there was an error, also send back a status of 400.
@@ -38,9 +39,9 @@ app.post('/todos', (req, res)=>{
 });
 
 //Get request
-app.get('/todos', (req, res) => {
-  Todo.find().then((todos)=>{
-    res.send({todos});
+app.get('/users', (req, res) => {
+  Todo.find().then((users)=>{
+    res.send({users});
   }, (e)=>{
     res.status(400).send(e);
   });
