@@ -13,11 +13,11 @@ MongoClient.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Recomm
   }
   console.log('Connected to mongodb server');
 
-  setTimeout(function() {
-    db.collection('users').deleteMany({username: "aarya"}).then((result)=>{
-      console.log(result);
-    });
-  }, 1500);
+  // setTimeout(function() {
+  //   db.collection('users').deleteMany({username: "aarya"}).then((result)=>{
+  //     console.log(result);
+  //   });
+  // }, 1500);
 
   //deleteMany
 
