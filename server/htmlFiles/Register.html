@@ -16,7 +16,7 @@
   <body>
     <h1>Register<h1>
     <form>
-      <input type="text" value="Email" id="email">
+      <input type="text" value="Username" id="username">
       <input type="text" value="Password" id="password">
       <input type="button" value="Sign Up" id="submit">
     </form>
@@ -45,26 +45,27 @@
       };
 
       // This is a POST request
-      var postRequest = function(arg) {
+      var postRequest = function(un ,pw) {
         $.ajax({
           url: "https://murmuring-woodland-62196.herokuapp.com/todos",
           type: "POST",
           headers: reqHeaders,
           contentType: 'application/json; charset=utf-8',
-          data: JSON.stringify({text: arg}),
+          data: JSON.stringify({username: un, password: pw}),
           dataType: "json",
           success: function(data) {
             console.log(data);
-            responseDiv.html(JSON.stringify(data, undefined, 2));
           },
           error: function() {
-            responseDiv.html("error with post...");
+            console.log('error with post')
           }
         });
       };
 
       submitButton.click(function(e) {
-        makeAPI1Request();
+        var un = String(username.value);
+        var pw = String(password.value);
+        postRequest(un, pw);
       });
 
     </script>
