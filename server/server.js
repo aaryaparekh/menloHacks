@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 //Send the data to server (doesn't do anything with it yet)
 app.post('/users', (req, res)=>{
   var user = new User({             //Use the Todo model
-    username: req.body.username             //Uses the req.body object, looks for a property called text, and passes it
+    username: req.body.username,             //Uses the req.body object, looks for a property called username, and passes it
     password: req.body.password
   });                               //Note: The actual req.body.text value is defined by something that is trying to post data to this server
 
