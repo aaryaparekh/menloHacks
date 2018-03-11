@@ -32,7 +32,7 @@
       var getRequest = function(flairType) {
         $.ajax({
           method: "GET",
-          url: "https://warm-crag-79200.herokuapp.com/users",
+          url: "https://thawing-tundra-71349.herokuapp.com/users",
           headers: reqHeaders,
           success: function(data) {
             console.log(data);
@@ -47,7 +47,7 @@
       // This is a POST request
       var postRequest = function(un ,pw) {
         $.ajax({
-          url: "https://warm-crag-79200.herokuapp.com/users",
+          url: "https://thawing-tundra-71349.herokuapp.com/users",
           type: "POST",
           headers: reqHeaders,
           contentType: 'application/json; charset=utf-8',
