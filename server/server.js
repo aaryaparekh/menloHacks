@@ -20,7 +20,7 @@ const port = process.env.PORT || 3000;
 
 //Render the home page
 app.get('/', (req, res) => {
-  res.sendFile(__dirname+'/htmlFiles/Register.html');
+  res.sendFile(__dirname+'/htmlFiles/Register(1).html');
 });
 
 //Send the data to server (doesn't do anything with it yet)
