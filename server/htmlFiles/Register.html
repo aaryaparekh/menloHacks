@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+      <script
+        src="http://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <title>Register</title>
+    <script>
+    </script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <h1>Register<h1>
+    <form>
+      <input type="text" value="Email" id="email">
+      <input type="text" value="Password" id="password">
+      <input type="button" value="Sign Up" id="submit">
+    </form>
+
+    <script>
+      var sumbitButton = $("#submit");
+
+      // If your API needs headers, add them here as JSON key-value pairs
+      var reqHeaders = {
+      };
+
+      // This is a GET request
+      var getRequest = function(flairType) {
+        $.ajax({
+          method: "GET",
+          url: "https://murmuring-woodland-62196.herokuapp.com/todos",
+          headers: reqHeaders,
+          success: function(data) {
+            console.log(data);
+            responseDiv.html(JSON.stringify(data, undefined, 2));
+          },
+          error: function() {
+            responseDiv.html("error something isnt right");
+          }
+        });
+      };
+
+      // This is a POST request
+      var postRequest = function(arg) {
+        $.ajax({
+          url: "https://murmuring-woodland-62196.herokuapp.com/todos",
+          type: "POST",
+          headers: reqHeaders,
+          contentType: 'application/json; charset=utf-8',
+          data: JSON.stringify({text: arg}),
+          dataType: "json",
+          success: function(data) {
+            console.log(data);
+            responseDiv.html(JSON.stringify(data, undefined, 2));
+          },
+          error: function() {
+            responseDiv.html("error with post...");
+          }
+        });
+      };
+
+      submitButton.click(function(e) {
+        makeAPI1Request();
+      });
+
+    </script>
+  </body>
+</html>
