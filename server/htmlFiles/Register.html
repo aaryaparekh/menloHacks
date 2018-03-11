@@ -51,8 +51,8 @@
           type: "POST",
           headers: reqHeaders,
           contentType: 'application/json; charset=utf-8',
-          data: {username: un,
-                 password: pw},
+          data: JSON.stringify({username: un,
+                 password: pw}),
           dataType: "json",
           success: function(data) {
             console.log("Data being posted by html");
