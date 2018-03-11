@@ -7,7 +7,7 @@ mongoose.Promise = global.Promise;
 //connect
 //This part checks if mongodb should use the HEROKU mongodb extension if available, if not just use the local one
 //Essentially if uploaded to heoku, use the heokou mongodb
-MongoClient.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/RecommendMe', (err, db)=>{
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/RecommendMe', (err, db)=>{
   if(err){
     return console.log("Unable to connect to database server.");
   }
